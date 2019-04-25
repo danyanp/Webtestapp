@@ -30,28 +30,71 @@
           </label>
         </div>
       </div>
-      <div class="row col-md-4 col-md-offset-4">{{Answer}}</div>
+      <div class="row col-md-4 col-md-offset-4" v-if="showAnswer">正确答案：{{Answer}}</div>
     </div>
     <div align="center">
-      <button type="button" class="btn btn-info glyphicon glyphicon-arrow-left"></button>
-      <button type="button" class="btn btn-info glyphicon glyphicon-arrow-right"></button>
+      <button type="button" class="btn btn-info glyphicon glyphicon-arrow-left" v-on:click="frontSubject"></button>
+      <button type="button" class="btn btn-info glyphicon glyphicon-arrow-right" v-on:click="lastSubject"></button>
     </div>
     <div align="center" style="padding-top: 10px;">
-      <button type="button" class="btn btn-success">查看答案</button>
+      <button type="button" class="btn btn-success" v-on:click="showCorrect">查看答案</button>
     </div>
   </div>
 </template>
 
 <script>
+var Snumber = 1
 export default {
   name: 'App',
+  created:function(){
+    this.newQuery(Snumber)
+  },
   data: function() {
     return{
-      S_number:'1/100',
-      Subject:'【单选题】下列不属于水平分隔线＜hr＞标记的属性是()。',
-      Option:{"0":"A、width","1":"B、height","2":"C、size","3":"D、color"},
-      Answer:'正确答案:B'
+      S_number:'',
+      Subject:'',
+      Option:{},
+      Answer:'',
+      showAnswer:false
     }
+  },
+  methods: {
+    //显示正确答案
+    showCorrect: function(){
+      this.showAnswer = !this.showAnswer
+    },
+    //后一个题目
+    lastSubject:function(){
+        Snumber++
+        console.log(Snumber)
+        this.newQuery(Snumber)
+    },
+    //前一个题目
+    frontSubject:function(){
+        Snumber--
+        console.log(Snumber)
+        this.newQuery(Snumber)
+    },
+    //新建一个查询
+    newQuery:function(Snumber){
+      if(Snumber<0){
+        return false
+      }
+      const query = Bmob.Query("question")
+      query.limit(1);
+      query.equalTo("S_number", "==",Snumber)
+      query.find().then(res => {
+            console.log(res)
+            if(res.length==0){
+              console.log('没有')
+              return false
+            }
+            this.S_number = res[0].S_number
+            this.Subject = res[0].Subject
+            this.Option = res[0].Option
+            this.Answer = res[0].Answer
+        });
+    },
   }
 }
 
