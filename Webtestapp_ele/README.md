@@ -1,30 +1,25 @@
-# ele
+ # WEB总结 -- webtestapp
 
-> A Vue.js project
+> 这是一个Vue.js项目
 
-## Build Setup
+## 功能
+- ### 主页index
+   - logo图标
+   - 目录
+- ### 总结模式summary
+   - 目录
+- ### 答题模式answer
+- ### 实训模式practical 
+- ### 关于about
 
-``` bash
-# install dependencies
+## 常用指令
+``` 
+# 安装依赖install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# 运行服务在8080端口serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
+# 打包项目build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

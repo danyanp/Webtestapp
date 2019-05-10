@@ -2,7 +2,7 @@
  <div id="app">
     <el-container style="text-align: center;">
       <el-header>
-        <h1 class="headerh1">WEB前端<i class="el-icon-question" style="float:right" @click="aboutjump"></i></h1>
+        <h1 class="headerh1">WEB前端</h1>
       </el-header>
       <el-main>
        <!--  <el-row>
@@ -22,13 +22,19 @@
         </el-row> -->
 
 
-      	<!-- 单元格 --> 
-      <el-row class="cell">
-        <div style="height: 20px;padding: 10px;" @click="lesson_1" >
-          <el-col :span="22"><div>前言</div></el-col>
-          <el-col :span="2" style="padding-top:4px"><i class="el-icon-arrow-right"></i></el-col>
-        </div>
+      <el-row style="padding-top:150px">
+          <button @click="summaryjump" class="button button-3d button-primary button-rounded">总结模式</button>
       </el-row>
+      <el-row style="padding-top:20px">
+          <button @click="practicaljump" class="button button-3d button-primary button-rounded">实训模式</button>
+      </el-row>
+      <el-row style="padding-top:20px">
+          <button @click="answerjump" class="button button-3d button-primary button-rounded">答题模式</button>
+      </el-row>
+      <el-row style="padding-top:20px">
+          <button @click="aboutjump" class="button button-3d button-primary button-rounded">关于APP</button>
+      </el-row>
+           
 
 
       </el-main>
@@ -76,8 +82,29 @@ export default {
       //window.location.href = 'https://www.schoowall.com/uploads/index.html'; 
       this.$router.push("/lesson_1");
     },
+    summaryjump(){
+     var that = this
+     setTimeout(function () {
+        that.$router.push("/summary");
+      }, 500)
+    },
+    answerjump(){
+      var that = this
+      setTimeout(function () {
+        that.$router.push("/answer");
+      }, 500)
+    },
+    practicaljump(){
+      var that = this
+      setTimeout(function () {
+        that.$router.push("/practical");
+      }, 500)
+    },
     aboutjump(){
-      this.$router.push("/about");
+      var that = this
+      setTimeout(function () {
+        that.$router.push("/about");
+      }, 500)
     }
   }
 };
@@ -90,18 +117,5 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
-  .headerh1{
-    color: white;
-    text-align: center;
-    letter-spacing: 10px;
-  }
-  .cell{
-		 background: linear-gradient(90deg,#0081ff,#1cbbb4);
-		 border-radius: 40px;
-     margin-top: 10px;
-     margin-bottom: 10px;
-	}
-	div.cell:active{
-		 background: linear-gradient(90deg,#1cbbb4,#0081ff);
-	}
+
 </style>

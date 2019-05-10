@@ -4,6 +4,9 @@ import index from '@/components/index'
 import look from '@/components/look'
 import update from '@/components/update'
 import about from '@/components/about'
+import summary from '@/components/summary'
+import answer from '@/components/answer'
+import practical from '@/components/practical'
 import lesson_1 from '@/components/lesson_1'
 
 Vue.use(Router)
@@ -20,6 +23,21 @@ export default new Router({
       path: '/index',
       name: 'index',
       component: index
+    },
+    {
+      path: '/summary',
+      name: 'summary',
+      component: summary
+    },
+    {
+      path: '/answer',
+      name: 'answer',
+      component: answer
+    },
+    {
+      path: '/practical',
+      name: 'practical',
+      component: practical
     },
     {
       path: '/look',
