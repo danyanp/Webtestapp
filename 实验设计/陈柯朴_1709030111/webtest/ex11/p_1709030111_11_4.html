@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title><style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		function ons()
+		{
+			var xh=myform.mytext.value;
+			if(xh.length<10)
+			{
+				alert("学号长度不足10位，请重新输入!");
+			}else if(parseInt(xh).toString().length!=10)
+			{
+				alert("学号必须为数字字符，请重新输入!");
+			}
+			else{
+				alert("学号输入正确!");
+			}
+		}
+	</script>
+	<body>
+		<form name="myform" onsubmit="return ons()">
+			<h2>检查学号的合法性</h2>
+			<label>输入学号:</label>&nbsp;&nbsp;<input type="text" value="" name="mytext" />
+			<input type="submit" name="mysubmit" id="" value="合法性检查" />
+		</form>
+	</body>
+</html>

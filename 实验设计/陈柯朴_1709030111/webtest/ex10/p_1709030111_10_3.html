@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				height: 380px;
+				width: 520px;
+				border: 10px inset green;
+				margin: 0 auto;
+			}
+
+			#div2 {
+				border: 10px outset green;
+				width: 500px;
+				height: 360px;
+				margin: 0 auto;
+			}
+
+			p {
+				text-align: center;
+				font-size: 25px;
+			}
+
+			table {
+				background: greenyellow;
+				color: white;
+			}
+
+			#input1 {
+				width: 130px;
+				height: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			function computer2(i) {
+				var res = 1;
+				for (var t = 1; t <= i; t++) {
+					res = res * t;
+				}
+				return res;
+			}
+
+			function computer() {
+				var x = $("num").value;
+				var pri = 0;
+				for (var i = 1; i <= x; i++) {
+					//result=result*i;
+					pri += computer2(i);
+				}
+				$("result").value = pri;
+			}
+
+			function $(id) {
+				return document.getElementById(id);
+			}
+
+			function myreset() {
+				$("num").value = "";
+				$("result").value = "";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<table width="500px">
+					<tr>
+						<th colspan="2">
+							<p>计算∑N！</p>
+						</th>
+					</tr>
+					<tr height="70px">
+						<td align="center"><label class="la1">输入整数N的值:</label></td>
+						<td align="center"><input type="text" name="" id="num" value="" /></td>
+					</tr>
+					<tr height="65px">
+						<td align="center"><label class="la2">∑N！=</label></td>
+						<td align="center"><input type="text" name="" id="result" value="" /></td>
+					</tr>
+					<tr height="130px">
+						<td align="center"><input type="button" onclick="computer()" value="计算∑N！" id="input1"></td>
+						<td align="center"><input type="reset" value="清空" onclick="myreset()"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

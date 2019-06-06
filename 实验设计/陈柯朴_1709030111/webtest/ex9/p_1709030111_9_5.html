@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript">
+			function checkKey()
+			{
+				var keystr=document.myform.key.value;
+				var count=0;
+		        if(keystr.length<8){
+		    	    alert("密码长度必须大于等于6！，请重输！");
+		    	   document.myform.key.value="";
+		        }
+		        else{
+		    	    for(var i=0;i<=keystr.length-1;i++){
+		    		    var onechar=keystr.charAt(i).toUpperCase();
+		    		    if(onechar>="A" && onechar<="Z"){
+		    			    count++;
+		    		    }
+		    	    }
+		    	    if(count<1){
+		    		    alert("密码至少含有一个字母！");
+		    		    document.myform.key.value="";
+		    	    }
+		        }
+			} 
+	   </script>
+	<body>
+		<!--内容设计-->
+		<h3>简易密码验证</h3>
+		<form name="myform">
+			<label>用户名：</label><input type="text" name="username" value="张试验" readonly /><br />
+			<label>密码：</label><input type="password" name="key" /><br />
+			<input type="button" value="验证" onclick="checkKey();"/>
+			<input type="reset" />
+		</form>	
+	</body>
+</html>

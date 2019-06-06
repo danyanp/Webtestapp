@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 350px;
+				height:200px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			fieldset{
+				width: 100%;
+				height: 150px;
+			}
+			.input1{
+				margin: 3px 20px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		
+		function checkin1()
+		{
+			var zh=myform.input1.value;
+			alert("用户名:"+zh);
+		}
+// 		function checkin2()
+// 		{
+// 			var mm=myform.input2.value;	
+// 		    alert("密码:"+mm);
+// 		}
+		function sub()
+		{
+			var zh=myform.input1.value;
+			var mm=myform.input2.value;
+			var rad=$1("radio");
+			for(var i=0;i<rad.length;i++)
+			{
+				if(rad[i].checked==true)
+				{
+					//ra=rad[i].value;
+					alert("用户名:"+zh+"\n"+"密码:"+mm+"\n"+"用户类型:"+rad[i].value);
+				}
+			}
+		}
+		function $(id){return document.getElementsByName(id);}
+		function $1(name){return document.getElementsByName(name);}
+	</script>
+	<body>
+		<div id="div1">
+			<form action="" method="get" name="myform" onsubmit="return sub();">
+				<fieldset id="">
+					<legend align="center">用户注册</legend>
+					<label>账号:</label><input type="text" name="input1" id="" value="" onblur="checkin1()"/><br>
+					<label>密码:</label><input type="password" name="input2" id="" value="" onblur="checkin2()"/><br>
+					<label>用户类型:</label>
+					<input type="radio" id="radio" name="radio"value="教师">教师 
+					<input type="radio" id="radio" name="radio" value="学生">学生 
+					<input type="radio" id="radio" name="radio" value="管理员">管理员<br>
+				   <input type="submit" value="提交" class="input1"/><input type="reset" value="重置" class="input1" />
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>

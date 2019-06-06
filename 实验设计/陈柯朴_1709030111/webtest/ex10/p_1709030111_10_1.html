@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				border: 7px solid green;
+				width: 480px;
+				height: 430px;
+				background: greenyellow;
+				margin: 0 auto;
+			}
+
+			#div2 {
+				border: 7px solid green;
+				width: 450px;
+				height: 400px;
+				margin: 8px 8px;
+				font-size: 30px;
+				text-align: center;
+				color: white;
+			}
+
+			p {
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1" name="myname">
+			<div id="div2">
+				<p>课程成绩评定</p>
+				<script type="text/javascript">
+					var result = "";
+					var score = prompt("请输入成绩:", 75);
+					if (score != null) {
+						score = parseInt(score);
+						if (score >= 90) {
+							result = "优秀";
+						}
+						if (score >= 80 && score <= 89) {
+							result = "良好";
+						}
+						if (score >= 70 && score <= 79) {
+							result = "中等";
+						}
+						if (score >= 60 && score < +69) {
+							result = "合格";
+						}
+						if (score < 60) {
+							result = "不合格";
+						}
+						//alert(result);
+						//return result;
+						document.write("课程成绩:" + score + "<br>");
+						alert("课程等级为:" + result);
+						document.write("等级:" + result + "<br>");
+					} else {
+						alert("请输入成绩:")
+					}
+					//alert(result);
+				</script>
+			</div>
+		</div>
+	</body>
+</html>

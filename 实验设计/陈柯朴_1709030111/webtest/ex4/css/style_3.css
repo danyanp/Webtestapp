@@ -1,0 +1,56 @@
+#div3 {
+	width: 900px;
+	height: 150px;
+	border: 1px solid #F0F0F0;
+	float: left;
+}
+
+#div1 {
+	margin: 5px;
+	border: 1px solid #E0E0E0;
+	width: 160px;
+	height: 150px;
+	float: left;
+}
+
+#div2 {
+	width: 700px;
+	height: 150px;
+}
+
+ul {
+	list-style-type: none;
+	line-height: 1.5em;
+}
+
+.sp1 {
+	background: #ff0033;
+	color: white;
+	width: 10px;
+	height: 10px;
+}
+
+.sp2 {
+	font-weight: bolder;
+	font-size: 16px;
+	font-family: 黑体;
+}
+
+.sp3 {
+	color: #FF0033;
+	font-weight: bolder;
+	font-size: 16px;
+	font-family: 黑体;
+}
+
+.li1 {
+	text-indent: 2em;
+}
+
+.sp4 {
+	text-decoration: line-through;
+	color: #C0C0C0;
+	font-weight: bolder;
+	font-family: 黑体;
+	font-size: 16px;
+}

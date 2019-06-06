@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			fieldset{
+				width: 500px;
+				font-size: 30px;
+				border-color: blue;
+				background: greenyellow;
+			}
+			legend{size: 20px;}
+		</style>
+		<script type="text/javascript">
+			function computer2(i)
+			{
+				var res=1;
+				for(var t=1;t<=i;t++)
+				{
+					res=res*t;
+				}
+				return res;
+			}
+			function computer(n)
+			{
+				var result;
+				var sum=0;
+				for(var i=1;i<=n;i++)
+				{
+					//result=result*i;
+					result=computer2(i);
+					document.write(i+"!="+result+"<br>");
+					sum+=result;
+					
+				}
+				
+				//document.write(n);
+				document.write("1!+2!+...+"+n+"!="+sum);
+				return sum;
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<fieldset id="">
+			<legend align="center">计算1！+2！+...+n!</legend>
+			<script type="text/javascript">
+				var n=prompt("请输入一个整数:",10);
+				computer(n);
+				//
+			</script>
+			
+		</fieldset>
+	</form>
+	</body>
+</html>

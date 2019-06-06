@@ -1,0 +1,39 @@
+img {
+	width: 186px;
+	height: 205px;
+}
+
+#div0 {
+	width: 720px;
+	height: 630px;
+	border: 1px solid #0099ff;
+	margin: 5px auto;
+}
+
+h3 {
+	text-align: center;
+	font-size: 32px;
+	color: red;
+}
+
+#div1,
+#div2,
+#div3,
+#div4,
+#div5,
+#div6 {
+	margin-left: 15px;
+	margin-top: 15px;
+	border: 1px double #9933cc;
+	/*float: left;*/
+	display: inline-block;
+
+}
+
+img {
+	border: 10px groove #9999CC
+}
+
+img:hover {
+	border: 10px dashed red;
+}

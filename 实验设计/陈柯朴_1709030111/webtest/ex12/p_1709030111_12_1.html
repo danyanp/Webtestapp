@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style type="text/css">
+			#div1{
+				margin: 0 auto;
+				width: 500px;
+				height: 270px;
+				border: 3px solid red;
+			}
+			#myreset{
+				width: 50px;
+				height: 80px;
+				background: skyblue;
+			}
+		</style>
+		<script type="text/javascript">
+			function $(id){
+				return document.getElementById(id);
+			}
+			function selnum(num){
+				var number=new Array();
+				for(var i=0;i<=7;i++)
+				{
+					var na=Math.floor(Math.random()*30+1);
+					for(var j=0;j<=number.length-1;j++)
+					{
+						if(na==number[j])
+						{
+							na=Math.floor(Math.random()*30+1);
+							j=0;
+						}
+					}
+					number[i]=na;
+				}
+				return number;
+			}
+			function selnum1(){
+				var su1=selnum(8);
+				$("text1").value=su1.sort().join(" ");
+			}
+			function selnum2(){
+				var su2=selnum(8);
+				$("text2").value=su2.sort().join(" ");
+			}
+			function selnum3(){
+				var su3=selnum(8);
+				$("text3").value=su3.sort().join(" ");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<img src="ico_7l.gif" >
+	         <form onreset="chongz()">
+						<table align="center">
+					<tr>
+						<th colspan="4"><p>
+							简易福彩投注程序
+						</p></th>
+						<tr>
+							<td>彩票号码</td>
+							<td><input type="text" name="mytext" id="text1" value="" /></td>
+							<td><input type="button" name="mybutton" id="button1" value="投注" onclick="selnum1()"/></td>
+							<td rowspan="3"><input type="reset" name="" id="myreset" value="清空" /></td>
+						</tr>
+						<tr>
+							<td>彩票号码</td>
+							<td><input type="text" name="mytext" id="text2" value="" /></td>
+							<td><input type="button" name="mybutton" id="button2" value="投注" onclick="selnum2()"/></td>
+						</tr>
+						<tr>
+							<td>彩票号码</td>
+							<td><input type="text" name="mytext" id="text3" value="" /></td>
+							<td><input type="button" name="mybutton" id="button3" value="投注" onclick="selnum3()"/></td>
+						</tr>
+					</tr>
+				</table>
+			</form>
+		</div>
+		
+	</body>
+</html>

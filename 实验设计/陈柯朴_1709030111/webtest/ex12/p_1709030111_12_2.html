@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			select{
+				width: 300px;
+				height: 145px;
+			}
+			h2{text-align: center;
+			font-size: 28px;
+			padding: 10px auto;}
+			div{width: 550px;
+			height: 320px;
+			margin: 0 auto;
+			color: white;
+			border: 3px solid #0077bb;
+			background: url(fc_logo.jpg) right top no-repeat;
+			}
+			input{
+				width: 80px;
+				height: 40px;
+			}
+		</style>
+		<script type="text/javascript">
+			function $(id){return document.getElementById(id);}
+			function selectNumber(n){
+				var number = new Array();
+				var objsel = $("number8");
+				var selnum=objsel.options.length;
+				for(var j=0;j<=n-1;j++)
+				{
+					var list = "";
+					for(var i=0;i<=7;i++)
+					{
+						var tmp = Math.floor(Math.random()*30+1);
+						if(tmp<10){tmp="0"+tmp;}
+						for(var k=0;k<=number.length-1;k++){
+							if(tmp==number[k])
+							{
+								tmp=Math.floor(Math.random()*30+1);
+								if(tmp<10){tmp="0"+tmp;}
+								k=0
+							}
+						}
+						number[i]=tmp;
+					}
+					list=number.join(" ");
+					var opt = document.createElement("option");
+					var opt_text=document.createTextNode(list);
+					opt.value=j;
+					opt.appendChild(opt_text);
+					objsel.appendChild(opt);
+				}
+				objsel.selectedIndex=selnum;
+			}
+			function delSelect(){
+				var objSelect=$("number8");
+				var strIndex = objSelect.selectedIndex;
+				if(strIndex!=-1)
+				{
+					objSelect.options.remove(strIndex);
+				}else{alert("请先选择列表项后再删除！");}
+			}
+			function delSelect_All(){
+				var objSelect=$("number8");
+				var strIndex=objSelect.options.length;
+				if(strIndex>0)
+				{
+					for(var i=0;i<=strIndex-1;i++)
+					{
+						objSelect.options.remove(0);
+					}
+				}else{alert("请先选择列表项后再删除！");}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="">
+			<img src="ico_7l.gif" >
+			<form action="" method="get">
+				<h2>福彩投注站彩票投注助手</h2>
+				<table>
+					<tr>
+						<td><input type="button" value="机选1注" onclick="selectNumber(1)"/></td>
+						<td rowspan="4">
+							<select name="number8" id="number8" size="5">
+							</select></td>
+						<td><input type="reset" name="" id="" value="删除" onclick="delSelect()"/></td>
+					</tr>
+					<tr>
+						<td><input type="button" name="" id="" value="机选5注" onclick="selectNumber(5)"/></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						
+					</tr>
+					<tr>
+						<td><input type="button" name="" id="" value="机选10注" onclick="selectNumber(10)"/></td>
+						<td><input type="button" name="" value="全部删除" onclick="delSelect_All()"/></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

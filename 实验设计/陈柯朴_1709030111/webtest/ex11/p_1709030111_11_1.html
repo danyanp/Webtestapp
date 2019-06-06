@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 800px;
+				height: 600px;
+				margin: 0 auto;
+				background: url(bg_id.jpg) no-repeat;
+				padding-top: 120px;
+			#div2{
+				margin: 0 auto;
+				width: 650px;
+				height: 310px;
+				border: 3px solid #4400ff;
+			}
+			p{
+				text-align: center;
+				margin-left: 80px;
+				padding-top: 10px;
+				width: 500px;
+				height: 30px;
+				background: #0000CC;
+				color: white;
+				letter-spacing: 0.3em;
+				font-weight: bold;
+			}
+			#td1{
+				text-align: center;
+				color: #6600ff;
+			}
+			.inp1{width: 60px;
+			height: 35px;
+			margin: 5px 25px;
+			}
+			label{color: red;}
+		</style>
+		<script type="text/javascript">
+			function $(id)
+			{return document.getElementById(id);}
+			function checkcardno()
+			{
+ 				var cno=myform.cardno.value;
+ 				$("err_cardno").innerHTML="";
+ 				if(cno==""||cno==null)//为空或不输入时
+				{
+					$("err_cardno").innerHTML="卡号不能为空!";
+				}
+				else if(cno.length!=10){
+					$("err_cardno").innerHTML="卡号长度必须为10!";
+				}
+				else{
+					var fnum=cno.charAt(0);
+					if(fnum=="0")//首字母不能为0
+					{
+						$("err_cardno").innerHTML="首字母必须不为0！";
+					}else if(parseInt(cno).toString().length!=10)
+					{
+						$("err_cardno").innerHTML="卡号不全为数字!";
+						alert("卡号不全为数字!");
+					}
+				}
+				
+			}
+			function checkKey()
+			{
+				var keyy=myform.key.value;
+				$("err_key").innerHTML="";
+				if(keyy=="" || keyy==null)//口令为空
+				{
+					$("err_key").innerHTML="口令不能为空!";//在右边输入并显示错误信息
+				}else{
+					if(keyy.length<8 || keyy.length>15)//检查口令长度
+					{
+						$("err_key").innerHTML="口令长度不能小于8或大于15!";
+					}
+				}
+			}
+			function checkKey2()
+			{
+				var keyy2=myform.key2.value;
+				var keyy1=myform.key.value;
+				$("err_key2").innerHTML="";
+				if(keyy2=="" || keyy2==null)
+				{
+					$("err_key2").innerHTML="口令不能为空!";
+				}
+				else if(keyy2.length<8 || keyy2.length>15)
+				{
+					$("err_key2").innerHTML="口令长度不能小于8或大于15!";
+				}
+				else if(keyy2!=keyy1)
+				{
+					$("err_key2").innerHTML="口令与二次口令不相同!";
+				}
+			}
+			function checkqqwx()
+			{
+				var qqwx1=myform.qqwx.value;
+				$("err_qqwx").innerHTML="";
+				if(qqwx1=="" || qqwx1==null)
+				{
+					$("err_qqwx").innerHTML="QQ/微信号不能为空!";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<form name="myform" action="" method="">
+				<p class="p1">校园办公系统认证页面</p>
+				<div id="div2">
+					<table align="center" width="90%" height="300px">
+						
+						<tr>
+							<td rowspan="6" width="200px"><img src="sfyz_2.jpg" ></td>
+						</tr>
+						<tr>
+							<td id="td1" width="115px">校园卡号:</td>
+							<td><input type="text" name="cardno" value="" onblur="checkcardno();" /></td>
+							<td width="160px"><label id="err_cardno"></label></td>
+						</tr>
+						<tr>
+							<td id="td1">口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;令:</td>
+							<td><input type="password" name="key" id="" value="" onblur="checkKey()"/></td>
+							<td><label id="err_key"></label></td>
+						</tr>
+						<tr>
+							<td id="td1">二次口令:</td>
+							<td><input type="password" name="key2" onblur="checkKey2()" /></td>
+							<td><label id="err_key2"></label></td>
+						</tr>
+						<tr>
+							<td id="td1">QQ/微信:</td>
+							<td><input type="text" name="qqwx" id="" value="" onblur="checkqqwx()"/></td>
+							<td><label id="err_qqwx"></label></td>
+						</tr>
+						<tr height="60px">
+							<td colspan="3" align="center"><input type="submit" value="提交" class="inp1"><input type="reset" value="重置" class="inp1"></td>
+						</tr>
+					</table>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

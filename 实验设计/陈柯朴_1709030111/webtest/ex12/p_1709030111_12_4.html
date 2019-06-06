@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			select{width: 260px;
+			height: 250px;}
+		</style>
+		<script type="text/javascript">
+			function $(id){return document.getElementById(id);}
+			function doone(){
+				var obj=$("sel").value;
+				//alert(obj);
+				if(obj!=""){
+					var obj1=document.createElement("option");
+					obj1.text=$("sel").options[$("sel").selectedIndex].text;
+					obj1.value=$("sel").options[$("sel").selectedIndex].value;
+					$("mysel").appendChild(obj1);
+// 					var obj1=document.createElement("option");
+// 					var t_obj1=document.createTextNode(obj);
+// 					obj1.appendChild(t_obj1);
+// 					$("mysel").appendChild(obj1);
+					
+				}
+			}
+			function undoone(){
+				var obj=$("mysel");
+				if(obj.selectedIndex==-1){
+					alert("请在右边选中一本书，再退购。");
+				}
+				else{
+					obj.remove(obj.sourceIndex);
+				}
+			}
+			function clearnone(){
+				while($("mysel").length>0){
+					$("mysel").remove(0);
+				}
+			}
+			function checkout(){
+				var sum=0;
+				if($("mysel").length<1){
+					alert("请选择图书。");
+				}
+				else{
+					for(var i=0;i<$("mysel").length;i++){
+					sum+=parseFloat($("mysel").options[i].value);
+				}
+				alert("请您付款"+sum+"元，欢迎您的下次光临！");
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table align="center">
+			<tr>
+				<th colspan="2">选购图书</th>
+			</tr>
+			<tr>
+				<td>
+					图书备选区
+				</td>
+				<td>
+					图书采购区
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<select name="" size="12" id="sel">
+						<option value="32">计算机网络（32元）</option>
+						<option value="58">数据结构（58元）</option>
+						<option value="45元">Java程序设计（45元）</option>
+						<option value="49">Web前端开发技术（49元）</option>
+						<option value="35">Web前端开发技术试验与实践（35元）</option>
+						<option value="30">计算机组成原理（30元）</option>
+						<option value="30">数据库开发技术（30元）</option>
+					</select>
+				</td>
+				<td>
+					<select id="mysel" size="12">
+						
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="button" value="单一选购" onclick="doone()">
+					<input type="button" value="单一退购" onclick="undoone()">
+					<input type="button" value="清空" onclick="clearnone()">
+					<input type="button" value="结账" onclick="checkout()">
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
